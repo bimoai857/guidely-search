@@ -13,3 +13,5 @@ def vectorize_text(text:str)->list[float]:
          input=text
     )
     return response.data[0].embedding
+
+

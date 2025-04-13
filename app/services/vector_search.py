@@ -1,8 +1,16 @@
 from app.utils.vectorizer import vectorize_text
 from sqlalchemy import create_engine,text
+from dotenv import load_dotenv
 from sqlalchemy.orm import sessionmaker
+import os
 
-DATABASE_URL="postgresql://postgres@127.0.0.1:5434/guidely2"
+load_dotenv()
+db_name=os.getenv("DB_NAME");
+username=os.getenv("DB_USERNAME");
+password=os.getenv("DB_PASSWORD");
+port=os.getenv("DB_PORT");
+
+DATABASE_URL=f"postgresql://{username}:{password}@127.0.0.1:{port}/{db_name}"
 
 engine=create_engine(DATABASE_URL)
 SessionLocale=sessionmaker(bind=engine)

@@ -11,7 +11,12 @@ from ..utils.vectorizer import vectorize_text
 load_dotenv()
 openai.api_key=os.getenv("OPENAI_API_KEY")
 
-DATABASE_URL="postgresql://postgres@127.0.0.1:5434/guidely2"
+db_name=os.getenv("DB_NAME");
+username=os.getenv("DB_USERNAME");
+password=os.getenv("DB_PASSWORD");
+port=os.getenv("DB_PORT");
+
+DATABASE_URL=f"postgresql://{username}:{password}@127.0.0.1:{port}/{db_name}"
 
 engine=create_engine(DATABASE_URL)
 SessionLocale=sessionmaker(bind=engine)
