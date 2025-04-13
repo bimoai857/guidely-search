@@ -3,9 +3,11 @@ import openai
 from dotenv import load_dotenv
 from sqlalchemy import create_engine,text
 from sqlalchemy.orm import sessionmaker
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import sys
 
-from ..utils.vectorizer import vectorize_text
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from utils.vectorizer import vectorize_text
 
 
 load_dotenv()
